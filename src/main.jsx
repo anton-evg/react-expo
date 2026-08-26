@@ -6,6 +6,7 @@ import ProcessSection from "./ProcessSection";
 import PortfolioSection from "./PortfolioSection";
 import ProductionSection from "./ProductionSection";
 import ContactsSection from "./ContactsSection";
+import Footer from "./Footer";
 import "./styles.css";
 import "./header.css";
 
@@ -104,7 +105,7 @@ function App() {
       <PortfolioSection />
       <ProductionSection />
       <ContactsSection />
-    </main></>;
+    </main><Footer /></>;
 }
 
 createRoot(document.getElementById("root")).render(
