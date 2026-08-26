@@ -1,0 +1,396 @@
+@font-face {
+    font-family: Manrope;
+    src: url("/assets/manrope-regular.ttf")
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url("/assets/manrope-bold.ttf");
+    font-weight: 700
+}
+
+@font-face {
+    font-family: Unbounded;
+    src: url("/assets/unbounded-bold.ttf");
+    font-weight: 700
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f1f1ef;
+    color: #090909;
+    font-family: Manrope, Arial, sans-serif
+}
+
+.react-home__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(440px, .92fr);
+    margin: 0 auto;
+    max-width: 1440px;
+    min-height: 100vh;
+    width: min(calc(100% - 96px), 1440px)
+}
+
+.react-home__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 88px 72px 56px 0
+}
+
+.react-home__eyebrow {
+    align-items: center;
+    display: flex;
+    font-size: 11px;
+    font-weight: 700;
+    gap: 18px;
+    letter-spacing: .14em;
+    text-transform: uppercase
+}
+
+.react-home__eyebrow::before {
+    background: #e30613;
+    content: "";
+    height: 2px;
+    width: 42px
+}
+
+.react-home__eyebrow span {
+    color: #777
+}
+
+.react-home__title {
+    font-family: Unbounded, sans-serif;
+    font-size: clamp(46px, 5.4vw, 88px);
+    letter-spacing: -.085em;
+    line-height: .98;
+    margin: 36px 0 42px;
+    max-width: 800px
+}
+
+.react-home__title span {
+    color: #e30613;
+    display: block;
+    margin-left: 12%
+}
+
+.react-home__intro {
+    align-items: flex-end;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    display: flex;
+    gap: 36px;
+    justify-content: space-between;
+    padding-top: 23px
+}
+
+.react-home__intro p {
+    color: #4c4c4a;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 460px
+}
+
+.react-home__intro a {
+    border-bottom: 2px solid #e30613;
+    color: #090909;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    padding-bottom: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap
+}
+
+.react-home__intro a span {
+    font-size: 21px;
+    margin-left: 12px
+}
+
+.react-home__facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    padding-top: 64px
+}
+
+.react-home__fact {
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    padding: 0 20px
+}
+
+.react-home__fact:first-child {
+    border-left: 0;
+    padding-left: 0
+}
+
+.react-home__fact strong {
+    display: block;
+    font-family: Unbounded, sans-serif;
+    font-size: 27px;
+    letter-spacing: -.09em
+}
+
+.react-home__fact span {
+    color: #626260;
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 10px;
+    max-width: 130px
+}
+
+.react-home__visual {
+    background: #090909;
+    isolation: isolate;
+    margin: 26px 0;
+    min-height: calc(100vh - 52px);
+    overflow: hidden;
+    position: relative
+}
+
+.react-home__visual img {
+    filter: grayscale(1) contrast(1.18);
+    height: 100%;
+    object-fit: cover;
+    width: 100%
+}
+
+.react-home__visual::after {
+    background: linear-gradient(145deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .68));
+    content: "";
+    inset: 0;
+    position: absolute
+}
+
+.react-home__frame {
+    border: 1px solid rgba(255, 255, 255, .8);
+    height: 70%;
+    left: 11%;
+    position: absolute;
+    top: 12%;
+    width: 76%;
+    z-index: 2
+}
+
+.react-home__accent {
+    background: #e30613;
+    bottom: 0;
+    height: 13%;
+    position: absolute;
+    right: 0;
+    width: 44%;
+    z-index: 3
+}
+
+.react-home__visual p {
+    bottom: 28px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.5;
+    margin: 0;
+    position: absolute;
+    right: 30px;
+    text-align: right;
+    text-transform: uppercase;
+    z-index: 4
+}
+
+.react-home__index {
+    bottom: 28px;
+    color: rgba(255, 255, 255, .72);
+    font-size: 11px;
+    left: 29px;
+    letter-spacing: .12em;
+    position: absolute;
+    z-index: 4
+}
+
+@media(max-width:700px) {
+    .react-home__hero {
+        display: flex;
+        flex-direction: column-reverse;
+        min-height: 0;
+        width: calc(100% - 40px)
+    }
+
+    .react-home__visual {
+        margin: 0;
+        min-height: 410px
+    }
+
+    .react-home__content {
+        padding: 54px 0 60px
+    }
+
+    .react-home__eyebrow {
+        font-size: 9px;
+        gap: 10px
+    }
+
+    .react-home__title {
+        font-size: 43px;
+        margin: 24px 0 32px
+    }
+
+    .react-home__intro {
+        display: block;
+        padding-top: 18px
+    }
+
+    .react-home__intro p {
+        font-size: 16px
+    }
+
+    .react-home__intro a {
+        display: inline-block;
+        margin-top: 25px
+    }
+
+    .react-home__facts {
+        margin-top: 48px;
+        padding-top: 0
+    }
+
+    .react-home__fact {
+        border-left: 0;
+        padding: 0
+    }
+
+    .react-home__fact strong {
+        font-size: 19px
+    }
+
+    .react-home__fact span {
+        font-size: 9px
+    }
+
+    .react-home__visual p {
+        bottom: 20px;
+        font-size: 9px;
+        right: 20px
+    }
+
+    .react-home__index {
+        bottom: 20px;
+        left: 20px;
+        font-size: 9px
+    }
+}
+
+.react-home__header {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .12)
+}
+
+.react-home__header-content {
+    align-items: center;
+    display: flex;
+    gap: 28px;
+    margin: 0 auto;
+    min-height: 92px;
+    width: min(calc(100% - 96px), 1440px)
+}
+
+.react-home__logo {
+    display: block;
+    width: 172px
+}
+
+.react-home__logo img {
+    display: block;
+    height: auto;
+    width: 100%
+}
+
+.react-home__navigation {
+    display: flex;
+    gap: 32px;
+    margin-left: auto
+}
+
+.react-home__navigation a {
+    color: #090909;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color .2s ease
+}
+
+.react-home__navigation a:hover {
+    color: #e30613
+}
+
+.react-home__phone {
+    color: #090909;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap
+}
+
+.react-home__menu-button {
+    display: none
+}
+
+@media(max-width:900px) {
+    .react-home__header-content {
+        min-height: 76px;
+        width: calc(100% - 40px)
+    }
+
+    .react-home__logo {
+        width: 140px
+    }
+
+    .react-home__navigation {
+        background: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, .12);
+        display: none;
+        left: 0;
+        margin: 0;
+        padding: 24px 20px;
+        position: absolute;
+        right: 0;
+        top: 76px
+    }
+
+    .react-home__navigation--open {
+        display: grid;
+        gap: 20px
+    }
+
+    .react-home__navigation a {
+        font-family: Unbounded, sans-serif;
+        font-size: 16px
+    }
+
+    .react-home__phone {
+        font-size: 13px;
+        margin-left: auto
+    }
+
+    .react-home__menu-button {
+        background: transparent;
+        border: 0;
+        display: grid;
+        gap: 7px;
+        height: 40px;
+        padding: 8px;
+        width: 40px
+    }
+
+    .react-home__menu-button span {
+        background: #090909;
+        display: block;
+        height: 1px;
+        width: 100%
+    }
+}

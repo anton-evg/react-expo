@@ -1,0 +1,42 @@
+.react-home{overflow:hidden}
+.react-home__header{background:#f1f1ef}
+.react-home__header-content{padding-bottom:10px;padding-top:10px}
+.react-home__phone{color:#e30613}
+
+@media(min-width:901px){
+  .react-home__header-content{min-height:72px}
+  .react-home__hero{height:calc(100dvh - 148px);min-height:0}
+  .react-home__content{padding-bottom:20px;padding-top:38px}
+  .react-home__title{margin-bottom:22px;margin-top:14px}
+  .react-home__facts{padding-top:22px}
+  .react-home__visual{height:auto;min-height:0}
+}
+
+@media(min-width:701px) and (max-width:900px){
+  .react-home__hero{grid-template-columns:minmax(0,1fr) minmax(0,.82fr);min-height:0;width:calc(100% - 64px)}
+  .react-home__content{padding:58px 40px 48px 0}
+  .react-home__title{font-size:clamp(40px,6.3vw,58px)}
+  .react-home__intro{align-items:flex-start;display:block}
+  .react-home__intro a{display:inline-block;margin-top:24px}
+  .react-home__facts{padding-top:40px}
+  .react-home__fact{padding:0 12px}
+  .react-home__fact strong{font-size:22px}
+  .react-home__visual{min-height:620px}
+}
+
+@media(max-width:900px){
+  .react-home__navigation--open{align-items:flex-start;background:#f1f1ef;display:flex;flex-direction:column;inset:0;justify-content:flex-start;padding:120px 20px 40px;position:fixed;text-align:left;z-index:40}
+  .react-home__navigation--open a{font-size:clamp(24px,7vw,38px)}
+  .react-home__menu-button{position:relative;z-index:41}
+  .react-home__menu-button--open{display:block}
+  .react-home__menu-button--open span{left:8px;position:absolute;top:19px;width:24px}
+  .react-home__menu-button--open span:first-child{transform:rotate(45deg)}
+  .react-home__menu-button--open span:last-child{transform:rotate(-45deg)}
+}
+
+@media(max-width:700px){
+  .react-home__container{padding-left:20px;padding-right:20px;width:100%}
+  .react-home__header-content{padding-bottom:10px;padding-top:10px}
+  .react-home__hero{min-height:0}
+  .react-home__hero .react-home__visual{display:none}
+}
