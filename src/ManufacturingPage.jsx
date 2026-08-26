@@ -51,7 +51,7 @@ function ManufacturingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <h1 id="manufacturing-page-title">Собираем стенды там, где контролируем каждую деталь</h1>
+          <h1 id="manufacturing-page-title">Производство выставочных стендов под контролем ЭКСПО НЕО</h1>
           <p className="react-manufacturing-page__lead">Собственная производственная площадка и команда специалистов позволяют держать качество и сроки под контролем от заготовки до монтажа.</p>
         </motion.div>
         <motion.figure

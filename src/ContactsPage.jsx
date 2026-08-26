@@ -39,7 +39,7 @@ function ContactsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <h1 id="contacts-page-title">Обсудим ваш выставочный проект</h1>
+          <h1 id="contacts-page-title">Контакты ЭКСПО НЕО</h1>
           <p className="react-contacts-page__lead">Расскажите о задаче, сроках и площадке. Подскажем оптимальное решение и организуем работу под ключ.</p>
         </motion.div>
         <motion.a

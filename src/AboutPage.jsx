@@ -14,7 +14,7 @@ function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.72, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          ЭКСПО НЕО — команда для участия в выставке под ключ
+          О компании ЭКСПО НЕО — выставочные стенды под ключ
         </motion.h1>
         <motion.p
           className="react-about-page__lead"

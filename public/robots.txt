@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://expo-neo.ru/sitemap.xml

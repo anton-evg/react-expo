@@ -78,7 +78,7 @@ function PortfolioPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08, duration: 0.72, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          Стенды, которые помогают компаниям быть заметными
+          Портфолио выставочных стендов ЭКСПО НЕО
         </motion.h1>
         <motion.p
           className="react-portfolio-page__lead"
