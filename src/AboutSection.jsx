@@ -60,7 +60,7 @@ function AboutSection() {
           transition={{ duration: 2.35, ease: [0.2, 0.75, 0.25, 1] }}
         >
           <img src="/assets/about-production.jpg" alt="Работа специалистов ЭКСПО НЕО на производстве" />
-          <figcaption>Свое производство</figcaption>
+          
           <span className="react-home__about-visual-line" aria-hidden="true"></span>
         </motion.figure>
 
