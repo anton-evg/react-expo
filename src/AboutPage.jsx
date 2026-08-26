@@ -8,14 +8,6 @@ function AboutPage() {
   return (
     <main className="react-about-page">
       <section className="react-about-page__hero react-home__container" aria-labelledby="about-page-title">
-        <motion.p
-          className="react-about-page__label"
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          О компании
-        </motion.p>
         <motion.h1
           id="about-page-title"
           initial={reduceMotion ? false : { opacity: 0, y: 32 }}
@@ -30,10 +22,10 @@ function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.22, duration: 0.58 }}
         >
-          От разработки дизайна стенда до демонтажа после мероприятия: берем на себя все этапы работы.
+          «Exponeo» — компания, которая поможет организовать участие в выставке под ключ: от разработки дизайна стенда до его демонтажа после мероприятия.
         </motion.p>
       </section>
-      <AboutSection />
+      <AboutSection variant="detailed" />
     </main>
   );
 }

@@ -38,7 +38,7 @@
 
 .react-home__about h2 {
     font-family: Unbounded, sans-serif;
-    font-size: clamp(28px, 2.8vw, 47px);
+    font-size: clamp(28px, 2.8vw, 44px);
     letter-spacing: -.075em;
     line-height: 1.08;
     margin: 0;

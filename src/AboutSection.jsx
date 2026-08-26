@@ -1,37 +1,66 @@
-import { Palette, Ruler, UsersRound, WalletCards } from "lucide-react";
+import { BadgeCheck, Factory, Palette, UsersRound, WalletCards } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import "./about-section.css";
 
-const advantages = [
+const summaryAdvantages = [
+  {
+    icon: Factory,
+    number: "01",
+    title: "Собственное производство",
+    text: "Выполняем работы своей командой и контролируем качество на каждом этапе.",
+  },
   {
     icon: Palette,
-    number: "01",
-    title: "Бесплатный дизайн-проект",
-    text: "Разрабатываем дизайн и чертежи для клиентов.",
-  },
-  {
-    icon: UsersRound,
     number: "02",
-    title: "Команда специалистов",
-    text: "Менеджеры, дизайнеры, конструкторы, монтажники, художники и маляры работают над проектом совместно.",
+    title: "Бесплатный дизайн",
+    text: "Разрабатываем дизайн-проект и чертежи для клиентов.",
   },
   {
-    icon: Ruler,
+    icon: BadgeCheck,
     number: "03",
-    title: "Персональный менеджер",
-    text: "Сопровождает проект от первой консультации до завершения выставки.",
+    title: "Аккредитация",
+    text: "Аккредитованы во всех крупных выставочных комплексах России.",
   },
   {
     icon: WalletCards,
     number: "04",
-    title: "Работа без посредников",
-    text: "Все задачи выполняет собственная команда.",
+    title: "Персональный менеджер",
+    text: "Сопровождает проект от первой консультации до завершения выставки.",
   },
 ];
 
-function AboutSection() {
+const detailedAdvantages = [
+  {
+    icon: BadgeCheck,
+    number: "01",
+    title: "Аккредитация везде",
+    text: "Официально аккредитованы во всех крупных выставочных комплексах страны. Вам не нужно беспокоиться о согласованиях.",
+  },
+  {
+    icon: Factory,
+    number: "02",
+    title: "Свое производство",
+    text: "Не передаем заказы другим компаниям: контролируем качество, соблюдаем сроки и предлагаем цены без наценок посредников.",
+  },
+  {
+    icon: UsersRound,
+    number: "03",
+    title: "Команда профессионалов",
+    text: "Менеджеры сопровождают проект, дизайнеры создают технически правильный дизайн, производственники воплощают проект в реальность.",
+  },
+  {
+    icon: WalletCards,
+    number: "04",
+    title: "Один подрядчик на все задачи",
+    text: "Экономите время и деньги: не нужно искать несколько исполнителей. Стенд будет готов вовремя и точно таким, как вы задумали.",
+  },
+];
+
+function AboutSection({ variant = "summary" }) {
   const reduceMotion = useReducedMotion();
   const reveal = reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 34 };
+  const isDetailed = variant === "detailed";
+  const advantages = isDetailed ? detailedAdvantages : summaryAdvantages;
 
   return (
     <section className="react-home__about" aria-labelledby="about-title">
@@ -43,13 +72,14 @@ function AboutSection() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 1.65, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <p className="react-home__about-eyebrow">О компании</p>
-          <h2 id="about-title">Команда для выставочных задач любой сложности</h2>
+          <p className="react-home__about-eyebrow">{isDetailed ? "Почему это удобно и выгодно" : "О компании"}</p>
+          <h2 id="about-title">{isDetailed ? "Берем ответственность за выставочный проект на всех этапах" : "Команда для выставочных задач любой сложности"}</h2>
           <p className="react-home__about-lead">
-            Создаем стенды от конструктора до эксклюзивных двухэтажных проектов.
-            Ведем задачу одной командой от первого разговора до завершения выставки.
+            {isDetailed
+              ? "От согласований и разработки дизайна до производства, монтажа и демонтажа — все этапы ведет одна команда ЭКСПО НЕО."
+              : "Создаем стенды от конструктора до эксклюзивных двухэтажных проектов. Ведем задачу одной командой от первого разговора до завершения выставки."}
           </p>
-          <a className="react-home__about-link" href="/about/">Подробнее о компании <span aria-hidden="true">↗</span></a>
+          {!isDetailed && <a className="react-home__about-link" href="/about/">Подробнее о компании <span aria-hidden="true">↗</span></a>}
         </motion.div>
 
         <motion.figure
