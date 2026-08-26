@@ -1,6 +1,7 @@
 .react-home{overflow:hidden}
 .react-home__header{background:#f1f1ef}
 .react-home__header-content{padding-bottom:10px;padding-top:10px}
+.react-home__header-tagline{color:#555552;font-size:14px;font-weight:700;letter-spacing:.07em;line-height:1.35;text-transform:uppercase}
 .react-home__phone{color:#e30613}
 
 @media(min-width:901px){
@@ -37,6 +38,7 @@
 @media(max-width:700px){
   .react-home__container{padding-left:20px;padding-right:20px;width:100%}
   .react-home__header-content{padding-bottom:10px;padding-top:10px}
+  .react-home__header-tagline{display:none}
   .react-home__hero{min-height:0}
   .react-home__hero .react-home__visual{display:none}
 }

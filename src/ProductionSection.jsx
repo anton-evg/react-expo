@@ -61,15 +61,15 @@ function ProductionSection() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             <motion.img
               key={productionImages[activeImage]}
               src={productionImages[activeImage]}
               alt="Оборудование собственного производства ЭКСПО НЕО"
-              initial={reduceMotion ? false : { opacity: 0, scale: 1.08 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={reduceMotion ? undefined : { opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.2, 0.75, 0.25, 1] }}
+              initial={reduceMotion ? false : { x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={reduceMotion ? undefined : { x: "5%" }}
+              transition={{ duration: 0.50, ease: "easeInOut" }}
             />
           </AnimatePresence>
           <span className="react-home__production-frame" aria-hidden="true"></span>

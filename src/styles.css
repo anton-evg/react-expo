@@ -301,13 +301,12 @@ body {
 
 .react-home__logo {
     display: block;
-    width: 172px
 }
 
 .react-home__logo img {
     display: block;
     height: auto;
-    width: 100%
+    width: 100px
 }
 
 .react-home__navigation {
