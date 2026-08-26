@@ -1,0 +1,302 @@
+.react-portfolio-page {
+  background: #f1f1ef;
+  color: #090909;
+}
+
+.react-portfolio-page__hero,
+.react-portfolio-page__shell {
+  margin: 0 auto;
+  width: min(calc(100% - 96px), 1440px);
+}
+
+.react-portfolio-page__hero {
+  padding: clamp(76px, 10vw, 148px) 0 clamp(82px, 11vw, 164px);
+}
+
+.react-portfolio-page h1,
+.react-portfolio-page h2 {
+  font-family: Unbounded, sans-serif;
+  letter-spacing: -0.085em;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.react-portfolio-page h1 {
+  font-size: clamp(38px, 6.4vw, 98px);
+  max-width: 1160px;
+}
+
+.react-portfolio-page__lead {
+  color: #555552;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.65;
+  margin: 36px 0 0;
+  max-width: 650px;
+}
+
+.react-portfolio-page__gallery {
+  background: #090909;
+  color: #fff;
+  padding: clamp(82px, 10vw, 150px) 0;
+}
+
+.react-portfolio-page__gallery-heading {
+  align-items: end;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.react-portfolio-page__gallery-heading p {
+  color: #e30613;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.react-portfolio-page h2 {
+  font-size: clamp(28px, 3.5vw, 56px);
+  max-width: 800px;
+}
+
+.react-portfolio-page__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(48px, 6vw, 82px);
+}
+
+.react-portfolio-page__card {
+  aspect-ratio: 1 / 1.08;
+  background: #1b1b1b;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: left;
+}
+
+.react-portfolio-page__card img {
+  filter: grayscale(1) contrast(1.08);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transition: filter 0.55s ease, transform 0.75s cubic-bezier(0.2, 0.75, 0.25, 1);
+  width: 100%;
+}
+
+.react-portfolio-page__card-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 35%, rgba(0, 0, 0, 0.78));
+  inset: 0;
+  position: absolute;
+  transition: background 0.3s ease;
+}
+
+.react-portfolio-page__card-number {
+  font-family: Unbounded, sans-serif;
+  font-size: 11px;
+  left: 22px;
+  position: absolute;
+  top: 22px;
+  z-index: 1;
+}
+
+.react-portfolio-page__card-content {
+  align-items: end;
+  bottom: 22px;
+  display: flex;
+  font-family: Unbounded, sans-serif;
+  font-size: clamp(14px, 1.35vw, 20px);
+  gap: 16px;
+  justify-content: space-between;
+  left: 22px;
+  letter-spacing: -0.06em;
+  line-height: 1.2;
+  position: absolute;
+  right: 22px;
+  z-index: 1;
+}
+
+.react-portfolio-page__card-content span {
+  max-width: 210px;
+}
+
+.react-portfolio-page__card:hover img {
+  filter: grayscale(0) contrast(1.02);
+  transform: scale(1.07);
+}
+
+.react-portfolio-page__card:hover .react-portfolio-page__card-overlay {
+  background: linear-gradient(180deg, rgba(227, 6, 19, 0.15), rgba(0, 0, 0, 0.72));
+}
+
+.react-portfolio-page__lightbox {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.94);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 42px;
+  position: fixed;
+  z-index: 100;
+}
+
+.react-portfolio-page__lightbox-content {
+  height: min(84vh, 920px);
+  max-width: 1400px;
+  position: relative;
+  width: 100%;
+}
+
+.react-portfolio-page__lightbox-content > img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.react-portfolio-page__lightbox button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  transition: background 0.2s ease;
+  z-index: 1;
+}
+
+.react-portfolio-page__lightbox button:hover {
+  background: #e30613;
+}
+
+.react-portfolio-page__lightbox-close {
+  height: 46px;
+  right: 0;
+  top: 0;
+  width: 46px;
+}
+
+.react-portfolio-page__lightbox-next,
+.react-portfolio-page__lightbox-previous {
+  height: 56px;
+  top: calc(50% - 28px);
+  width: 56px;
+}
+
+.react-portfolio-page__lightbox-previous {
+  left: 0;
+}
+
+.react-portfolio-page__lightbox-next {
+  right: 0;
+}
+
+.react-portfolio-page__lightbox-content p {
+  bottom: -33px;
+  color: #fff;
+  display: flex;
+  font-family: Unbounded, sans-serif;
+  font-size: 12px;
+  justify-content: space-between;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+}
+
+.react-portfolio-page__lightbox-content p span {
+  color: #aaa;
+}
+
+@media (max-width: 900px) {
+  .react-portfolio-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .react-portfolio-page__card:nth-child(1) {
+    aspect-ratio: 1.7 / 1;
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .react-portfolio-page__hero,
+  .react-portfolio-page__shell.react-home__container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+
+  .react-portfolio-page__hero {
+    padding-bottom: 78px;
+    padding-top: 72px;
+  }
+
+  .react-portfolio-page__gallery {
+    padding: 78px 0;
+  }
+
+  .react-portfolio-page__gallery-heading {
+    display: block;
+  }
+
+  .react-portfolio-page__gallery-heading p {
+    margin-bottom: 16px;
+  }
+
+  .react-portfolio-page__grid {
+    display: block;
+    margin-top: 42px;
+  }
+
+  .react-portfolio-page__card,
+  .react-portfolio-page__card:nth-child(1) {
+    aspect-ratio: 1 / 1.08;
+    display: block;
+    margin-top: 14px;
+    width: 100%;
+  }
+
+  .react-portfolio-page__card:first-child {
+    margin-top: 0;
+  }
+
+  .react-portfolio-page__lightbox {
+    padding: 20px;
+  }
+
+  .react-portfolio-page__lightbox-content {
+    height: auto;
+    max-height: 86vh;
+  }
+
+  .react-portfolio-page__lightbox-content > img {
+    height: auto;
+    max-height: 80vh;
+  }
+
+  .react-portfolio-page__lightbox-next,
+  .react-portfolio-page__lightbox-previous {
+    height: 46px;
+    width: 46px;
+  }
+
+  .react-portfolio-page__lightbox-content p {
+    bottom: -28px;
+    font-size: 10px;
+  }
+
+  .react-portfolio-page__lightbox-close {
+    height: 42px;
+    width: 42px;
+  }
+}

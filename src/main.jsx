@@ -7,6 +7,8 @@ import PortfolioSection from "./PortfolioSection";
 import ProductionSection from "./ProductionSection";
 import ContactsSection from "./ContactsSection";
 import Footer from "./Footer";
+import PortfolioPage from "./PortfolioPage";
+import ManufacturingPage from "./ManufacturingPage";
 import "./styles.css";
 import "./header.css";
 
@@ -24,7 +26,10 @@ function Header() {
 }
 
 function App() {
-  return <><Header /><main className="react-home">
+  const isPortfolioPage = window.location.pathname.startsWith("/portfolio");
+  const isManufacturingPage = window.location.pathname.startsWith("/manufacturing");
+
+  return <><Header />{isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : <main className="react-home">
       <section className="react-home__hero react-home__container">
         <div className="react-home__content">
           <motion.h1
@@ -105,7 +110,7 @@ function App() {
       <PortfolioSection />
       <ProductionSection />
       <ContactsSection />
-    </main><Footer /></>;
+    </main>}<Footer /></>;
 }
 
 createRoot(document.getElementById("root")).render(
