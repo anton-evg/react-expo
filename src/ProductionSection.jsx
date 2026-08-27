@@ -11,10 +11,10 @@ const equipment = [
 ];
 
 const productionImages = [
-  "/assets/production-2.jpg",
-  "/assets/production-3.jpg",
-  "/assets/production-4.jpg",
-  "/assets/production-5.jpg",
+  { src: "/assets/production-2.jpg", width: 956, height: 666 },
+  { src: "/assets/production-3.jpg", width: 955, height: 717 },
+  { src: "/assets/production-4.jpg", width: 956, height: 668 },
+  { src: "/assets/production-5.jpg", width: 947, height: 711 },
   "/assets/production-6.jpg",
 ];
 
@@ -63,8 +63,12 @@ function ProductionSection() {
         >
           <AnimatePresence mode="sync">
             <motion.img
-              key={productionImages[activeImage]}
-              src={productionImages[activeImage]}
+              key={productionImages[activeImage].src}
+              src={productionImages[activeImage].src}
+              srcSet={`${productionImages[activeImage].src} ${productionImages[activeImage].width}w`}
+              sizes="(max-width: 700px) 100vw, 42vw"
+              width={productionImages[activeImage].width}
+              height={productionImages[activeImage].height}
               alt="Оборудование собственного производства ЭКСПО НЕО"
               initial={reduceMotion ? false : { x: "-100%" }}
               animate={{ x: 0 }}
@@ -75,7 +79,7 @@ function ProductionSection() {
           <span className="react-home__production-frame" aria-hidden="true"></span>
           <p>Собственное<br />производство</p>
           <div className="react-home__production-pagination" aria-hidden="true">
-            {productionImages.map((image, index) => <span className={index === activeImage ? "react-home__production-pagination-item--active" : ""} key={image}></span>)}
+            {productionImages.map((image, index) => <span className={index === activeImage ? "react-home__production-pagination-item--active" : ""} key={image.src}></span>)}
           </div>
         </motion.div>
       </div>

@@ -7,16 +7,25 @@ const projects = [
   {
     title: "Выставочный проект Крым",
     image: "/assets/portfolio-krym.jpg",
+    thumbnail: "/assets/portfolio/thumbs/19.jpg",
+    width: 800,
+    height: 600,
     alt: "Выставочный стенд Крым с посетителями",
   },
   {
     title: "Выставочный проект Academy",
     image: "/assets/portfolio-academy.jpg",
+    thumbnail: "/assets/portfolio/thumbs/09.jpg",
+    width: 800,
+    height: 531,
     alt: "Выставочный стенд Academy с демонстрационной зоной",
   },
   {
     title: "Выставочный проект Бронка",
     image: "/assets/portfolio-bronka.jpg",
+    thumbnail: "/assets/portfolio/thumbs/13.jpg",
+    width: 800,
+    height: 600,
     alt: "Выставочный стенд Бронка",
   },
 ];
@@ -63,7 +72,7 @@ function PortfolioSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: reduceMotion ? 0 : index * 0.12, duration: 0.7, ease: [0.2, 0.75, 0.25, 1] }}
             >
-              <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+              <img src={project.thumbnail} srcSet={`${project.thumbnail} 800w`} sizes="(max-width: 700px) 100vw, 33vw" width={project.width} height={project.height} alt={project.alt} loading="lazy" decoding="async" fetchPriority="low" />
               <span className="react-home__portfolio-overlay" aria-hidden="true"></span>
               <span className="react-home__portfolio-card-meta"><span>0{index + 1}</span><ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.5} /></span>
               <span className="react-home__portfolio-card-title">{project.title}</span>
@@ -92,7 +101,7 @@ function PortfolioSection() {
               transition={{ duration: 0.35, ease: [0.2, 0.75, 0.25, 1] }}
               onClick={(event) => event.stopPropagation()}
             >
-              <img src={selectedProject.image} alt={selectedProject.alt} loading="eager" decoding="async" />
+              <img src={selectedProject.image} width={selectedProject.width} height={selectedProject.height} alt={selectedProject.alt} loading="eager" decoding="async" />
               <p>{selectedProject.title}</p>
               <button type="button" onClick={() => setSelectedProject(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
             </motion.div>

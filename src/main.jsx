@@ -1,4 +1,4 @@
-import { StrictMode, useState } from "react";
+import { lazy, StrictMode, Suspense, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -8,13 +8,14 @@ import PortfolioSection from "./PortfolioSection";
 import ProductionSection from "./ProductionSection";
 import ContactsSection from "./ContactsSection";
 import Footer from "./Footer";
-import PortfolioPage from "./PortfolioPage";
-import ManufacturingPage from "./ManufacturingPage";
-import ContactsPage from "./ContactsPage";
-import AboutPage from "./AboutPage";
 import Seo from "./Seo";
 import "./styles.css";
 import "./header.css";
+
+const PortfolioPage = lazy(() => import("./PortfolioPage.jsx"));
+const ManufacturingPage = lazy(() => import("./ManufacturingPage.jsx"));
+const ContactsPage = lazy(() => import("./ContactsPage.jsx"));
+const AboutPage = lazy(() => import("./AboutPage.jsx"));
 
 const facts = [
   ["10+", "лет в выставочной индустрии"],
@@ -26,7 +27,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navigationItems = [["О компании", "/about/"], ["Портфолио", "/portfolio/"], ["Производство", "/manufacturing/"], ["Контакты", "/contacts/"]];
 
-  return <header className="react-home__header"><div className="react-home__header-content react-home__container"><a className="react-home__logo" href="/" aria-label="ЭКСПО НЕО — главная страница"><img src="/assets/logo.png" alt="Логотип ЭКСПО НЕО" /></a><span className="react-home__header-tagline">Выставочные<br />решения под ключ</span><nav className={`react-home__navigation ${isOpen ? "react-home__navigation--open" : ""}`} aria-label="Основная навигация">{navigationItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav><a className="react-home__phone" href="tel:+74951426880">+7 (495) 142 68 80</a><button className={`react-home__menu-button ${isOpen ? "react-home__menu-button--open" : ""}`} type="button" aria-label={isOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}><span></span><span></span></button></div></header>;
+  return <header className="react-home__header"><div className="react-home__header-content react-home__container"><a className="react-home__logo" href="/" aria-label="ЭКСПО НЕО — главная страница"><img src="/assets/logo.png" width={2648} height={1762} alt="Логотип ЭКСПО НЕО" /></a><span className="react-home__header-tagline">Выставочные<br />решения под ключ</span><nav className={`react-home__navigation ${isOpen ? "react-home__navigation--open" : ""}`} aria-label="Основная навигация">{navigationItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav><a className="react-home__phone" href="tel:+74951426880">+7 (495) 142 68 80</a><button className={`react-home__menu-button ${isOpen ? "react-home__menu-button--open" : ""}`} type="button" aria-label={isOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}><span></span><span></span></button></div></header>;
 }
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
   const isAboutPage = window.location.pathname.startsWith("/about");
   const seoPage = isPortfolioPage ? "portfolio" : isManufacturingPage ? "manufacturing" : isContactsPage ? "contacts" : isAboutPage ? "about" : "home";
 
-  return <><Seo page={seoPage} /><Header />{isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : isContactsPage ? <ContactsPage /> : isAboutPage ? <AboutPage /> : <main className="react-home">
+  return <><Seo page={seoPage} /><Header /><Suspense fallback={null}>{isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : isContactsPage ? <ContactsPage /> : isAboutPage ? <AboutPage /> : <main className="react-home">
       <section className="react-home__hero react-home__container">
         <div className="react-home__content">
           <motion.h1
@@ -96,6 +97,10 @@ function App() {
         >
           <motion.img
             src="/assets/hero.avif"
+            srcSet="/assets/hero.avif 1920w"
+            sizes="(max-width: 700px) 100vw, 50vw"
+            width={1920}
+            height={1280}
             alt="Пространство мероприятия для делового общения"
             initial={{ scale: 1.18 }}
             animate={{ scale: 1.05 }}
@@ -117,7 +122,7 @@ function App() {
       <PortfolioSection />
       <ProductionSection />
       <ContactsSection />
-    </main>}<Footer /></>;
+    </main>}</Suspense><Footer /></>;
 }
 
 createRoot(document.getElementById("root")).render(

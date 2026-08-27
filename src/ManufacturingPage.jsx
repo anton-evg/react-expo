@@ -17,8 +17,21 @@ const equipment = [
   ["Принтеры и плоттер", "Печать крупной графики для оформления стендов."],
 ];
 
+const manufacturingImageDimensions = [
+  [955, 672],
+  [956, 666],
+  [955, 717],
+  [956, 668],
+  [947, 711],
+  [955, 713],
+  [953, 710],
+  [953, 660],
+];
+
 const manufacturingImages = Array.from({ length: 8 }, (_, index) => ({
   image: `/assets/manufacturing/${index + 1}.JPG`,
+  width: manufacturingImageDimensions[index][0],
+  height: manufacturingImageDimensions[index][1],
   alt: `Производство ЭКСПО НЕО, фотография ${index + 1}`,
 }));
 
@@ -60,7 +73,7 @@ function ManufacturingPage() {
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ delay: 0.16, duration: 1.05, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <img src={manufacturingImages[0].image} alt="Цех собственного производства ЭКСПО НЕО" />
+          <img src={manufacturingImages[0].image} srcSet={`${manufacturingImages[0].image} ${manufacturingImages[0].width}w`} sizes="(max-width: 700px) 100vw, 50vw" width={manufacturingImages[0].width} height={manufacturingImages[0].height} alt="Цех собственного производства ЭКСПО НЕО" />
           <figcaption>Более 1 500 м² собственной производственной площадки</figcaption>
         </motion.figure>
       </section>
@@ -135,7 +148,7 @@ function ManufacturingPage() {
                 role="listitem"
                 aria-label={`Открыть фотографию производства ${index + 1}`}
               >
-                <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+                <img src={item.image} srcSet={`${item.image} ${item.width}w`} sizes="(max-width: 700px) 100vw, 33vw" width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" fetchPriority="low" />
                 <span className="react-manufacturing-page__gallery-shade" aria-hidden="true"></span>
                 <span className="react-manufacturing-page__gallery-number">0{index + 1}</span>
                 <ZoomIn aria-hidden="true" size={21} strokeWidth={1.5} />
@@ -169,7 +182,7 @@ function ManufacturingPage() {
             >
               <button className="react-manufacturing-page__lightbox-close" type="button" onClick={() => setSelectedImageIndex(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
               <button className="react-manufacturing-page__lightbox-previous" type="button" onClick={showPreviousImage} aria-label="Предыдущее фото"><ChevronLeft aria-hidden="true" size={30} /></button>
-              <img src={selectedImage.image} alt={selectedImage.alt} loading="eager" decoding="async" />
+              <img src={selectedImage.image} width={selectedImage.width} height={selectedImage.height} alt={selectedImage.alt} loading="eager" decoding="async" />
               <button className="react-manufacturing-page__lightbox-next" type="button" onClick={showNextImage} aria-label="Следующее фото"><ChevronRight aria-hidden="true" size={30} /></button>
               <p>Производство ЭКСПО НЕО <span>{selectedImageIndex + 1} / {manufacturingImages.length}</span></p>
             </motion.div>

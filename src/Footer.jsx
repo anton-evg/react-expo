@@ -19,7 +19,7 @@ function Footer() {
           <span className="react-home__footer-agency-label">Разработано в</span>
           <noindex>
             <a className="react-home__footer-agency" href="https://ledoffsky.agency/" rel="nofollow" aria-label="LEDOFFSKY AGENCY">
-              <img src="/assets/la-logo.svg" alt="LEDOFFSKY AGENCY" />
+              <img src="/assets/la-logo.svg" width={120} height={36} alt="LEDOFFSKY AGENCY" />
             </a>
           </noindex>
         </div>

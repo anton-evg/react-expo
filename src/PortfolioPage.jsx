@@ -37,13 +37,41 @@ const projectNames = {
   "IMG_20180910_185811.jpg": "Проект Крым",
 };
 
+const portfolioImageDimensions = {
+  "_DSC0244.JPG": [2048, 1381],
+  "_DSC0714.JPG": [2048, 1365],
+  "002.jpg": [1890, 1417],
+  "011.jpg": [1600, 1200],
+  "20230908_092346.jpg": [4000, 3000],
+  "5268b146-9ebc-4371-a46e-f30667675cbe.jpeg": [1600, 1200],
+  "АгрофирмаПоиск.jpg": [1600, 1200],
+  "АмиБьюти1.jpg": [4288, 2848],
+  "АмиБьюти2.jpg": [4288, 2848],
+  "Изображение WhatsApp 2023-05-22 в 16.34.55.jpg": [1600, 1200],
+  "Изображение WhatsApp 2023-05-23 в 18.24.09.jpg": [1080, 810],
+  "КрасныеКрыши.jpg": [4288, 2848],
+  "портБронка2.jpg": [1600, 1200],
+  "Трессе.jpg": [1600, 1200],
+  "Cntyl_Treesse.jpg": [5678, 3785],
+  "IMG_0156_V2.jpg": [3572, 2451],
+  "IMG_0842.jpg": [4032, 3024],
+  "IMG_0863.jpg": [4032, 3024],
+  "IMG_20180910_185811.jpg": [4000, 3000],
+  "IMG_20220926_174315.jpg": [4000, 1844],
+  "IMG_8068.jpg": [4032, 3024],
+  "Safeed_Зернокомбикорма 2018.jpg": [1000, 665],
+};
+
 const portfolioProjects = portfolioImageFiles.map((fileName, index) => {
   const title = projectNames[fileName] || `Выставочный проект ${String(index + 1).padStart(2, "0")}`;
+  const [width, height] = portfolioImageDimensions[fileName];
 
   return {
     title,
     image: `/assets/portfolio/${encodeURIComponent(fileName)}`,
     thumbnail: `/assets/portfolio/thumbs/${String(index + 1).padStart(2, "0")}.jpg`,
+    width,
+    height,
     alt: `Выставочный стенд ЭКСПО НЕО: ${title}`,
   };
 });
@@ -111,7 +139,7 @@ function PortfolioPage() {
                 role="listitem"
                 aria-label={`Открыть фото: ${project.title}`}
               >
-                <img src={project.thumbnail} alt={project.alt} loading="lazy" decoding="async" />
+                <img src={project.thumbnail} srcSet={`${project.thumbnail} 800w`} sizes="(max-width: 700px) 100vw, 33vw" width={project.width} height={project.height} alt={project.alt} loading="lazy" decoding="async" fetchPriority="low" />
                 <span className="react-portfolio-page__card-overlay" aria-hidden="true"></span>
                 <span className="react-portfolio-page__card-number">0{index + 1}</span>
                 <span className="react-portfolio-page__card-content"><span>{project.title}</span><ZoomIn aria-hidden="true" size={20} strokeWidth={1.5} /></span>
@@ -143,7 +171,7 @@ function PortfolioPage() {
             >
               <button className="react-portfolio-page__lightbox-close" type="button" onClick={() => setSelectedProjectIndex(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
               <button className="react-portfolio-page__lightbox-previous" type="button" onClick={showPreviousProject} aria-label="Предыдущее фото"><ChevronLeft aria-hidden="true" size={30} /></button>
-              <img key={selectedProject.image} src={selectedProject.image} alt={selectedProject.alt} loading="eager" decoding="async" />
+              <img key={selectedProject.image} src={selectedProject.image} width={selectedProject.width} height={selectedProject.height} alt={selectedProject.alt} loading="eager" decoding="async" />
               <button className="react-portfolio-page__lightbox-next" type="button" onClick={showNextProject} aria-label="Следующее фото"><ChevronRight aria-hidden="true" size={30} /></button>
               <p>{selectedProject.title}<span>{selectedProjectIndex + 1} / {portfolioProjects.length}</span></p>
             </motion.div>

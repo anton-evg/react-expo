@@ -89,7 +89,7 @@ function AboutSection({ variant = "summary" }) {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 2.35, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <img src="/assets/about-production.jpg" alt="Работа специалистов ЭКСПО НЕО на производстве" loading="lazy" decoding="async" />
+          <img src="/assets/about-production.jpg" srcSet="/assets/about-production.jpg 955w" sizes="(max-width: 700px) 100vw, 33vw" width={955} height={672} alt="Работа специалистов ЭКСПО НЕО на производстве" loading="lazy" decoding="async" fetchPriority="low" />
           
           <span className="react-home__about-visual-line" aria-hidden="true"></span>
         </motion.figure>
