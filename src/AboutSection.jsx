@@ -1,4 +1,4 @@
-import { BadgeCheck, Factory, Palette, UsersRound, WalletCards } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Factory, Palette, UsersRound, WalletCards } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import "./about-section.css";
 
@@ -79,7 +79,7 @@ function AboutSection({ variant = "summary" }) {
               ? "От согласований и разработки дизайна до производства, монтажа и демонтажа — все этапы ведет одна команда ЭКСПО НЕО."
               : "Создаем стенды от конструктора до эксклюзивных двухэтажных проектов. Ведем задачу одной командой от первого разговора до завершения выставки."}
           </p>
-          {!isDetailed && <a className="react-home__about-link" href="/about/">Подробнее о компании <span aria-hidden="true">↗</span></a>}
+          {!isDetailed && <a className="react-home__about-link" href="/about/">Подробнее о компании <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2} /></a>}
         </motion.div>
 
         <motion.figure
