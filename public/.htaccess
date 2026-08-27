@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .xml
+ErrorDocument 404 /404.html
