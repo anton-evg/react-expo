@@ -43,6 +43,7 @@ const portfolioProjects = portfolioImageFiles.map((fileName, index) => {
   return {
     title,
     image: `/assets/portfolio/${encodeURIComponent(fileName)}`,
+    thumbnail: `/assets/portfolio/thumbs/${String(index + 1).padStart(2, "0")}.jpg`,
     alt: `Выставочный стенд ЭКСПО НЕО: ${title}`,
   };
 });
@@ -110,7 +111,7 @@ function PortfolioPage() {
                 role="listitem"
                 aria-label={`Открыть фото: ${project.title}`}
               >
-                <img src={project.image} alt={project.alt} />
+                <img src={project.thumbnail} alt={project.alt} loading="lazy" decoding="async" />
                 <span className="react-portfolio-page__card-overlay" aria-hidden="true"></span>
                 <span className="react-portfolio-page__card-number">0{index + 1}</span>
                 <span className="react-portfolio-page__card-content"><span>{project.title}</span><ZoomIn aria-hidden="true" size={20} strokeWidth={1.5} /></span>
@@ -142,7 +143,7 @@ function PortfolioPage() {
             >
               <button className="react-portfolio-page__lightbox-close" type="button" onClick={() => setSelectedProjectIndex(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
               <button className="react-portfolio-page__lightbox-previous" type="button" onClick={showPreviousProject} aria-label="Предыдущее фото"><ChevronLeft aria-hidden="true" size={30} /></button>
-              <img key={selectedProject.image} src={selectedProject.image} alt={selectedProject.alt} />
+              <img key={selectedProject.image} src={selectedProject.image} alt={selectedProject.alt} loading="eager" decoding="async" />
               <button className="react-portfolio-page__lightbox-next" type="button" onClick={showNextProject} aria-label="Следующее фото"><ChevronRight aria-hidden="true" size={30} /></button>
               <p>{selectedProject.title}<span>{selectedProjectIndex + 1} / {portfolioProjects.length}</span></p>
             </motion.div>

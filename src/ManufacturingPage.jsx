@@ -135,7 +135,7 @@ function ManufacturingPage() {
                 role="listitem"
                 aria-label={`Открыть фотографию производства ${index + 1}`}
               >
-                <img src={item.image} alt={item.alt} />
+                <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
                 <span className="react-manufacturing-page__gallery-shade" aria-hidden="true"></span>
                 <span className="react-manufacturing-page__gallery-number">0{index + 1}</span>
                 <ZoomIn aria-hidden="true" size={21} strokeWidth={1.5} />
@@ -169,7 +169,7 @@ function ManufacturingPage() {
             >
               <button className="react-manufacturing-page__lightbox-close" type="button" onClick={() => setSelectedImageIndex(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
               <button className="react-manufacturing-page__lightbox-previous" type="button" onClick={showPreviousImage} aria-label="Предыдущее фото"><ChevronLeft aria-hidden="true" size={30} /></button>
-              <img src={selectedImage.image} alt={selectedImage.alt} />
+              <img src={selectedImage.image} alt={selectedImage.alt} loading="eager" decoding="async" />
               <button className="react-manufacturing-page__lightbox-next" type="button" onClick={showNextImage} aria-label="Следующее фото"><ChevronRight aria-hidden="true" size={30} /></button>
               <p>Производство ЭКСПО НЕО <span>{selectedImageIndex + 1} / {manufacturingImages.length}</span></p>
             </motion.div>

@@ -63,7 +63,7 @@ function PortfolioSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: reduceMotion ? 0 : index * 0.12, duration: 0.7, ease: [0.2, 0.75, 0.25, 1] }}
             >
-              <img src={project.image} alt={project.alt} />
+              <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
               <span className="react-home__portfolio-overlay" aria-hidden="true"></span>
               <span className="react-home__portfolio-card-meta"><span>0{index + 1}</span><ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.5} /></span>
               <span className="react-home__portfolio-card-title">{project.title}</span>
@@ -92,7 +92,7 @@ function PortfolioSection() {
               transition={{ duration: 0.35, ease: [0.2, 0.75, 0.25, 1] }}
               onClick={(event) => event.stopPropagation()}
             >
-              <img src={selectedProject.image} alt={selectedProject.alt} />
+              <img src={selectedProject.image} alt={selectedProject.alt} loading="eager" decoding="async" />
               <p>{selectedProject.title}</p>
               <button type="button" onClick={() => setSelectedProject(null)} aria-label="Закрыть просмотр"><X aria-hidden="true" size={24} /></button>
             </motion.div>
