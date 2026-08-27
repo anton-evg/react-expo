@@ -107,7 +107,7 @@
 
 @media (max-width: 700px) {
   .react-not-found-page__hero.react-home__container {
-    align-items: start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 54px;
@@ -117,7 +117,7 @@
   }
 
   .react-not-found-page__code {
-    font-size: clamp(88px, 28vw, 150px);
+    font-size: clamp(88px, 28vw, 200px);
   }
 
   .react-not-found-page h1 {

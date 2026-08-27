@@ -22,7 +22,6 @@ function NotFoundPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.12, duration: 0.7, ease: [0.2, 0.75, 0.25, 1] }}
         >
-          <p className="react-not-found-page__eyebrow">Страница не найдена</p>
           <h1 id="not-found-title">Похоже, этот стенд еще не построен</h1>
           <p className="react-not-found-page__lead">Запрошенный адрес не существует или был изменен. Вернитесь на главную и продолжите знакомство с ЭКСПО НЕО.</p>
           <div className="react-not-found-page__actions">
