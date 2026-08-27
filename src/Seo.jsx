@@ -72,7 +72,7 @@ function Seo({ page }) {
 
     document.title = currentPage.title;
     updateMeta("description", currentPage.description);
-    updateMeta("robots", "noindex, nofollow, noarchive");
+    updateMeta("robots", "index, follow");
     updateProperty("og:title", currentPage.title);
     updateProperty("og:description", currentPage.description);
     updateProperty("og:type", "website");
