@@ -1,4 +1,4 @@
-import { lazy, StrictMode, Suspense, useState } from "react";
+import { lazy, StrictMode, Suspense, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -32,6 +32,7 @@ function Header() {
 }
 
 function App() {
+  const [isMobileViewport, setIsMobileViewport] = useState(() => window.matchMedia("(max-width: 700px)").matches);
   const currentPath = window.location.pathname;
   const isHomePage = currentPath === "/" || currentPath === "/index.html";
   const isPortfolioPage = currentPath === "/portfolio" || currentPath.startsWith("/portfolio/");
@@ -41,18 +42,33 @@ function App() {
   const isNotFoundPage = !isHomePage && !isPortfolioPage && !isManufacturingPage && !isContactsPage && !isAboutPage;
   const seoPage = isPortfolioPage ? "portfolio" : isManufacturingPage ? "manufacturing" : isContactsPage ? "contacts" : isAboutPage ? "about" : isNotFoundPage ? "not-found" : "home";
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 700px)");
+    const handleViewportChange = (event) => setIsMobileViewport(event.matches);
+
+    mediaQuery.addEventListener("change", handleViewportChange);
+    return () => mediaQuery.removeEventListener("change", handleViewportChange);
+  }, []);
+
   return <><Seo page={seoPage} /><Header /><Suspense fallback={null}>{isNotFoundPage ? <NotFoundPage /> : isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : isContactsPage ? <ContactsPage /> : isAboutPage ? <AboutPage /> : <main className="react-home">
       <section className="react-home__hero react-home__container">
         <div className="react-home__content">
-          <motion.h1
-            className="react-home__title"
-            initial={{ opacity: 0, y: 42 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.2, 0.75, 0.25, 1] }}
-          >
-            Застройка выставочных стендов
-            <br /> под ключ
-          </motion.h1>
+          {isMobileViewport ? (
+            <h1 className="react-home__title">
+              Застройка выставочных стендов
+              <br /> под ключ
+            </h1>
+          ) : (
+            <motion.h1
+              className="react-home__title"
+              initial={{ opacity: 0, y: 42 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.2, 0.75, 0.25, 1] }}
+            >
+              Застройка выставочных стендов
+              <br /> под ключ
+            </motion.h1>
+          )}
           <motion.div
             className="react-home__intro"
             initial={{ opacity: 0, y: 22 }}
