@@ -75,7 +75,6 @@ function PortfolioSection() {
               <img src={project.thumbnail} srcSet={`${project.thumbnail} 800w`} sizes="(max-width: 700px) 100vw, 33vw" width={project.width} height={project.height} alt={project.alt} loading="lazy" decoding="async" fetchPriority="low" />
               <span className="react-home__portfolio-overlay" aria-hidden="true"></span>
               <span className="react-home__portfolio-card-meta"><span>0{index + 1}</span><ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.5} /></span>
-              <span className="react-home__portfolio-card-title">{project.title}</span>
             </motion.button>
           ))}
         </div>
