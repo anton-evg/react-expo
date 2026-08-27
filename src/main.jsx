@@ -16,6 +16,7 @@ const PortfolioPage = lazy(() => import("./PortfolioPage.jsx"));
 const ManufacturingPage = lazy(() => import("./ManufacturingPage.jsx"));
 const ContactsPage = lazy(() => import("./ContactsPage.jsx"));
 const AboutPage = lazy(() => import("./AboutPage.jsx"));
+const NotFoundPage = lazy(() => import("./NotFoundPage.jsx"));
 
 const facts = [
   ["10+", "лет в выставочной индустрии"],
@@ -31,13 +32,16 @@ function Header() {
 }
 
 function App() {
-  const isPortfolioPage = window.location.pathname.startsWith("/portfolio");
-  const isManufacturingPage = window.location.pathname.startsWith("/manufacturing");
-  const isContactsPage = window.location.pathname.startsWith("/contacts");
-  const isAboutPage = window.location.pathname.startsWith("/about");
-  const seoPage = isPortfolioPage ? "portfolio" : isManufacturingPage ? "manufacturing" : isContactsPage ? "contacts" : isAboutPage ? "about" : "home";
+  const currentPath = window.location.pathname;
+  const isHomePage = currentPath === "/" || currentPath === "/index.html";
+  const isPortfolioPage = currentPath === "/portfolio" || currentPath.startsWith("/portfolio/");
+  const isManufacturingPage = currentPath === "/manufacturing" || currentPath.startsWith("/manufacturing/");
+  const isContactsPage = currentPath === "/contacts" || currentPath.startsWith("/contacts/");
+  const isAboutPage = currentPath === "/about" || currentPath.startsWith("/about/");
+  const isNotFoundPage = !isHomePage && !isPortfolioPage && !isManufacturingPage && !isContactsPage && !isAboutPage;
+  const seoPage = isPortfolioPage ? "portfolio" : isManufacturingPage ? "manufacturing" : isContactsPage ? "contacts" : isAboutPage ? "about" : isNotFoundPage ? "not-found" : "home";
 
-  return <><Seo page={seoPage} /><Header /><Suspense fallback={null}>{isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : isContactsPage ? <ContactsPage /> : isAboutPage ? <AboutPage /> : <main className="react-home">
+  return <><Seo page={seoPage} /><Header /><Suspense fallback={null}>{isNotFoundPage ? <NotFoundPage /> : isPortfolioPage ? <PortfolioPage /> : isManufacturingPage ? <ManufacturingPage /> : isContactsPage ? <ContactsPage /> : isAboutPage ? <AboutPage /> : <main className="react-home">
       <section className="react-home__hero react-home__container">
         <div className="react-home__content">
           <motion.h1

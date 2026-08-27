@@ -12,6 +12,7 @@ export default defineConfig({
         portfolio: resolve(import.meta.dirname, "portfolio/index.html"),
         manufacturing: resolve(import.meta.dirname, "manufacturing/index.html"),
         contacts: resolve(import.meta.dirname, "contacts/index.html"),
+        notFound: resolve(import.meta.dirname, "404.html"),
       },
     },
   },

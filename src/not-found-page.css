@@ -1,0 +1,150 @@
+.react-not-found-page {
+  background: #f1f1ef;
+  color: #090909;
+}
+
+.react-not-found-page__hero {
+  align-items: center;
+  display: grid;
+  gap: clamp(42px, 8vw, 140px);
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  min-height: min(720px, calc(100vh - 190px));
+  padding-bottom: clamp(80px, 10vw, 140px);
+  padding-top: clamp(80px, 10vw, 140px);
+}
+
+.react-not-found-page__code {
+  color: #e30613;
+  font-family: Unbounded, sans-serif;
+  font-size: clamp(88px, 16vw, 240px);
+  letter-spacing: -0.13em;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.react-not-found-page__content {
+  max-width: 690px;
+}
+
+.react-not-found-page__eyebrow {
+  align-items: center;
+  color: #e30613;
+  display: flex;
+  font-size: 11px;
+  font-weight: 700;
+  gap: 14px;
+  letter-spacing: 0.14em;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+}
+
+.react-not-found-page__eyebrow::before {
+  background: #e30613;
+  content: "";
+  height: 2px;
+  width: 40px;
+}
+
+.react-not-found-page h1 {
+  font-family: Unbounded, sans-serif;
+  font-size: clamp(32px, 4.2vw, 64px);
+  letter-spacing: -0.09em;
+  line-height: 1.06;
+  margin: 0;
+  max-width: 650px;
+  text-wrap: pretty;
+}
+
+.react-not-found-page__lead {
+  color: #555552;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.65;
+  margin: 30px 0 0;
+  max-width: 560px;
+}
+
+.react-not-found-page__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 42px;
+}
+
+.react-not-found-page__primary-link,
+.react-not-found-page__secondary-link {
+  align-items: center;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 12px;
+  letter-spacing: 0.08em;
+  padding-bottom: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.react-not-found-page__primary-link {
+  background: #e30613;
+  color: #fff;
+  padding: 15px 20px;
+}
+
+.react-not-found-page__secondary-link {
+  border-bottom: 2px solid #e30613;
+  color: #090909;
+}
+
+.react-not-found-page__primary-link:hover,
+.react-not-found-page__secondary-link:hover {
+  color: #e30613;
+}
+
+.react-not-found-page__primary-link:hover {
+  color: #090909;
+}
+
+@media (max-width: 700px) {
+  .react-not-found-page__hero.react-home__container {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+    min-height: 0;
+    padding: 80px 20px 96px;
+    width: 100%;
+  }
+
+  .react-not-found-page__code {
+    font-size: clamp(88px, 28vw, 150px);
+  }
+
+  .react-not-found-page h1 {
+    font-size: 31px;
+  }
+
+  .react-not-found-page__lead {
+    font-size: 16px;
+    margin-top: 23px;
+  }
+
+  .react-not-found-page__actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 32px;
+  }
+
+  .react-not-found-page__primary-link,
+  .react-not-found-page__secondary-link {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-not-found-page__primary-link,
+  .react-not-found-page__secondary-link {
+    transition-duration: 0.01ms !important;
+  }
+}
