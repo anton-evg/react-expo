@@ -126,7 +126,7 @@ function App() {
       <PortfolioSection />
       <ProductionSection />
       <ContactsSection />
-    </main>}</Suspense><Footer /></>;
+    </main>}<Footer /></Suspense></>;
 }
 
 createRoot(document.getElementById("root")).render(
