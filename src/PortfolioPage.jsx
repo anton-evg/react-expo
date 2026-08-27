@@ -142,7 +142,7 @@ function PortfolioPage() {
                 <img src={project.thumbnail} srcSet={`${project.thumbnail} 800w`} sizes="(max-width: 700px) 100vw, 33vw" width={project.width} height={project.height} alt={project.alt} loading="lazy" decoding="async" fetchPriority="low" />
                 <span className="react-portfolio-page__card-overlay" aria-hidden="true"></span>
                 <span className="react-portfolio-page__card-number">0{index + 1}</span>
-                <span className="react-portfolio-page__card-content"><span>{project.title}</span><ZoomIn aria-hidden="true" size={20} strokeWidth={1.5} /></span>
+                <ZoomIn className="react-portfolio-page__card-zoom" aria-hidden="true" size={20} strokeWidth={1.5} />
               </motion.button>
             ))}
           </div>

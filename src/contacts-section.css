@@ -1,5 +1,5 @@
 .react-home__contacts{background:#f1f1ef;color:#090909;padding:clamp(86px,10vw,152px) 0}
-.react-home__contacts-shell{display:grid;gap:clamp(52px,8vw,128px);grid-template-columns:minmax(320px,.9fr) minmax(380px,1.1fr);margin:0 auto;width:min(calc(100% - 96px),1440px)}
+.react-home__contacts-shell{align-items:stretch;display:grid;gap:clamp(52px,8vw,128px);grid-template-columns:minmax(0,1fr) minmax(300px,.75fr);margin:0 auto;width:min(calc(100% - 96px),1440px)}
 .react-home__contacts-eyebrow{color:#e30613;font-size:11px;font-weight:700;letter-spacing:.14em;margin:0 0 18px;text-transform:uppercase}
 .react-home__contacts h2{font-family:Unbounded,sans-serif;font-size:clamp(31px,3.8vw,62px);letter-spacing:-.09em;line-height:1.05;margin:0;text-wrap:pretty}
 .react-home__contacts-lead{color:#555552;font-size:17px;line-height:1.6;margin:26px 0 0;max-width:450px}
@@ -9,10 +9,14 @@
 .react-home__contacts-item span{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;margin-bottom:6px;text-transform:uppercase}
 .react-home__contacts-item p,.react-home__contacts-item a{color:#090909;font-size:15px;line-height:1.45;margin:0;text-decoration:none}
 .react-home__contacts-item a:hover{color:#e30613}
-.react-home__contacts-map{background:#d7d7d3;min-height:570px;overflow:hidden;position:relative}
-.react-home__contacts-map::after{background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(0,0,0,.18));content:"";inset:0;pointer-events:none;position:absolute}
-.react-home__contacts-map iframe{border:0;filter:grayscale(1) contrast(1.12);height:100%;inset:0;position:absolute;width:100%}
-.react-home__contacts-map span{background:#e30613;bottom:0;color:#fff;font-family:Unbounded,sans-serif;font-size:11px;letter-spacing:.05em;padding:17px 20px;position:absolute;right:0;z-index:2}
-@media(max-width:900px){.react-home__contacts-shell{gap:52px;grid-template-columns:minmax(0,.9fr) minmax(290px,1fr)}.react-home__contacts-map{min-height:520px}}
-@media(max-width:700px){.react-home__contacts{padding:80px 0}.react-home__contacts-shell.react-home__container{display:flex;flex-direction:column;gap:44px;padding-bottom:0;padding-top:0;width:100%}.react-home__contacts-lead{font-size:16px;margin-top:22px}.react-home__contacts-list{margin-top:32px}.react-home__contacts-map{min-height:430px;width:100%}}
+.react-home__contacts-card{background:#090909;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;padding:32px;position:relative}
+.react-home__contacts-card::before{background:#e30613;content:"";height:100%;left:0;position:absolute;top:0;width:5px}
+.react-home__contacts-card-label{color:#e30613;font-size:11px;font-weight:700;letter-spacing:.14em;margin:0;text-transform:uppercase}
+.react-home__contacts-card-phone{color:#fff;font-family:Unbounded,sans-serif;font-size:clamp(23px,2.2vw,36px);letter-spacing:-.08em;line-height:1.1;margin-top:50px;text-decoration:none}
+.react-home__contacts-card-phone:hover{color:#e30613}
+.react-home__contacts-card-note{color:#a8a8a3;font-size:14px;line-height:1.55;margin:20px 0 0;max-width:280px}
+.react-home__contacts-card-link{align-items:center;border-bottom:2px solid #e30613;color:#fff;display:inline-flex;font-size:12px;font-weight:700;gap:14px;letter-spacing:.08em;margin-top:35px;padding-bottom:12px;text-decoration:none;text-transform:uppercase;width:max-content}
+.react-home__contacts-card-link:hover{color:#e30613}
+@media(max-width:900px){.react-home__contacts-shell{gap:52px;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr)}}
+@media(max-width:700px){.react-home__contacts{padding:80px 0}.react-home__contacts-shell.react-home__container{display:flex;flex-direction:column;gap:44px;padding-bottom:0;padding-top:0;width:100%}.react-home__contacts-lead{font-size:16px;margin-top:22px}.react-home__contacts-list{margin-top:32px}.react-home__contacts-card{min-height:300px;padding:26px 24px}.react-home__contacts-card-phone{font-size:26px;margin-top:40px}}
 @media(prefers-reduced-motion:reduce){.react-home__contacts *{transition-duration:.01ms!important}}

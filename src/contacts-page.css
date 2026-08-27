@@ -32,8 +32,7 @@
   max-width: 940px;
 }
 
-.react-contacts-page__label,
-.react-contacts-page__map-heading p {
+.react-contacts-page__label {
   color: #e30613;
   font-size: 11px;
   font-weight: 700;
@@ -81,15 +80,14 @@
   padding: clamp(86px, 10vw, 150px) 0;
 }
 
-.react-contacts-page__details h2,
-.react-contacts-page__map-heading h2 {
+.react-contacts-page__details h2 {
   font-size: clamp(30px, 4vw, 62px);
 }
 
 .react-contacts-page__details-grid {
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: clamp(44px, 6vw, 82px);
 }
 
@@ -127,68 +125,6 @@
   color: #e30613;
 }
 
-.react-contacts-page__map-section {
-  padding: clamp(86px, 10vw, 150px) 0;
-}
-
-.react-contacts-page__map-heading {
-  align-items: end;
-  display: flex;
-  gap: 36px;
-  justify-content: space-between;
-}
-
-.react-contacts-page__map-heading a {
-  align-items: center;
-  border-bottom: 2px solid #e30613;
-  color: #090909;
-  display: inline-flex;
-  font-family: Unbounded, sans-serif;
-  font-size: 13px;
-  gap: 14px;
-  letter-spacing: -0.04em;
-  padding-bottom: 12px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.react-contacts-page__map {
-  margin-top: clamp(44px, 6vw, 82px);
-  min-height: min(55vw, 680px);
-  overflow: hidden;
-  position: relative;
-}
-
-.react-contacts-page__map::after {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.24));
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-}
-
-.react-contacts-page__map iframe {
-  border: 0;
-  filter: grayscale(1) contrast(1.13);
-  height: 100%;
-  inset: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.react-contacts-page__map span {
-  background: #e30613;
-  bottom: 0;
-  color: #fff;
-  font-family: Unbounded, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  padding: 18px 22px;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-}
-
 @media (max-width: 1050px) {
   .react-contacts-page__details-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -217,8 +153,7 @@
     white-space: normal;
   }
 
-  .react-contacts-page__details,
-  .react-contacts-page__map-section {
+  .react-contacts-page__details {
     padding: 78px 0;
   }
 
@@ -226,14 +161,4 @@
     grid-template-columns: 1fr;
   }
 
-  
-
-  .react-contacts-page__map-heading {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .react-contacts-page__map {
-    min-height: 470px;
-  }
 }

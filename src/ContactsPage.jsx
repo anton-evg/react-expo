@@ -1,14 +1,8 @@
-import { Clock3, Mail, MapPin, Phone, Route } from "lucide-react";
+import { Clock3, Mail, Phone } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import "./contacts-page.css";
 
 const contactItems = [
-  {
-    icon: MapPin,
-    label: "Адрес",
-    value: "142184, Московская область, г.о. Подольск, мкр. Климовск, ул. Товарная, д. 29",
-    href: "https://yandex.ru/maps/?text=142184%2C%20Московская%20область%2C%20г.о.%20Подольск%2C%20мкр.%20Климовск%2C%20ул.%20Товарная%2C%20д.%2029",
-  },
   {
     icon: Phone,
     label: "Телефон",
@@ -69,37 +63,13 @@ function ContactsPage() {
               >
                 <Icon aria-hidden="true" size={22} strokeWidth={1.5} />
                 <p>{label}</p>
-                {href ? <a href={href} target={label === "Адрес" ? "_blank" : undefined} rel={label === "Адрес" ? "noreferrer" : undefined}>{value}</a> : <span>{value}</span>}
+                {href ? <a href={href}>{value}</a> : <span>{value}</span>}
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="react-contacts-page__map-section" aria-labelledby="contacts-map-title">
-        <div className="react-contacts-page__shell react-home__container">
-          <div className="react-contacts-page__map-heading">
-            <div>
-              <h2 id="contacts-map-title">Приезжайте в ЭКСПО НЕО</h2>
-            </div>
-            <a href="https://yandex.ru/maps/?text=142184%2C%20Московская%20область%2C%20г.о.%20Подольск%2C%20мкр.%20Климовск%2C%20ул.%20Товарная%2C%20д.%2029" target="_blank" rel="noreferrer">Построить маршрут <Route aria-hidden="true" size={19} strokeWidth={1.7} /></a>
-          </div>
-          <motion.div
-            className="react-contacts-page__map"
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.18 }}
-            transition={{ duration: 0.72, ease: [0.2, 0.75, 0.25, 1] }}
-          >
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?text=142184%2C%20%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C%20%D0%B3.%D0%BE.%20%D0%9F%D0%BE%D0%B4%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%2C%20%D0%BC%D0%BA%D1%80.%20%D0%9A%D0%BB%D0%B8%D0%BC%D0%BE%D0%B2%D1%81%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%2C%20%D0%B4.%2029&z=16"
-              title="Карта расположения производства ЭКСПО НЕО"
-              loading="lazy"
-            ></iframe>
-            <span>ЭКСПО НЕО</span>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }
