@@ -1,5 +1,6 @@
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import AboutSection from "./AboutSection";
 import ProcessSection from "./ProcessSection";
@@ -58,7 +59,7 @@ function App() {
               производим и строим стенды для выставок.
             </p>
             <a href="/contacts/">
-              Получить консультацию <span>↗</span>
+              Получить консультацию <ArrowUpRight aria-hidden="true" size={19} strokeWidth={2} />
             </a>
           </motion.div>
           <motion.div

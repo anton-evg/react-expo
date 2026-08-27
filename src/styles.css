@@ -107,9 +107,10 @@ body {
     white-space: nowrap
 }
 
-.react-home__intro a span {
-    font-size: 21px;
-    margin-left: 12px
+.react-home__intro a svg {
+    display: inline-block;
+    margin-left: 12px;
+    vertical-align: -5px
 }
 
 .react-home__facts {
