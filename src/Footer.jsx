@@ -15,7 +15,14 @@ function Footer() {
         <nav aria-label="Навигация в подвале">
           {footerLinks.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
         </nav>
-        <noindex><a className="react-home__footer-agency" href="https://ledoffsky.agency/" rel="nofollow">LEDOFFSKY AGENCY</a></noindex>
+        <div className="react-home__footer-agency-block">
+          <span className="react-home__footer-agency-label">Разработано в</span>
+          <noindex>
+            <a className="react-home__footer-agency" href="https://ledoffsky.agency/" rel="nofollow" aria-label="LEDOFFSKY AGENCY">
+              <img src="/assets/la-logo.svg" alt="LEDOFFSKY AGENCY" />
+            </a>
+          </noindex>
+        </div>
       </div>
     </footer>
   );
