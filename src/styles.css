@@ -207,17 +207,6 @@ body {
     z-index: 4
 }
 
-@media (max-width: 1300px) {
-    .react-home__accent {
-        height: 17%;
-        width: 46%;
-    }
-
-    .react-home__title {
-        letter-spacing: 0;
-    }
-}
-
 .react-home__index {
     bottom: 28px;
     color: rgba(255, 255, 255, .72);

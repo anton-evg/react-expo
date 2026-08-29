@@ -42,3 +42,14 @@
   .react-home__hero{min-height:0}
   .react-home__hero .react-home__visual{display:none}
 }
+
+@media (max-width: 1300px) {
+  .react-home__accent {
+    height: 17% !important;
+    width: 46% !important;
+  }
+
+  .react-home__title {
+    letter-spacing: 0 !important;
+  }
+}
