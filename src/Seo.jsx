@@ -97,7 +97,7 @@ function Seo({ page }) {
           url: siteUrl,
           logo: `${siteUrl}/favicon.svg`,
           telephone: "+7 (495) 142 68 80",
-          email: "info@exponeo.ru",
+          email: "ks@expo-neo.ru",
           address: {
             "@type": "PostalAddress",
             postalCode: "142184",

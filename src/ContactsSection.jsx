@@ -6,8 +6,8 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@exponeo.ru",
-    href: "mailto:info@exponeo.ru",
+    value: "ks@expo-neo.ru",
+    href: "mailto:ks@expo-neo.ru",
   },
   {
     icon: Clock3,
